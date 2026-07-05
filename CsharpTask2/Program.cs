@@ -157,7 +157,7 @@ namespace CsharpTask2
             }*/
             ////////////////////////////////////////////////////
             //Task 8 - Sum of Even Numbers Only
-            Console.WriteLine("Enter a positive Number:");
+            /*Console.WriteLine("Enter a positive Number:");
             int N = int.Parse(Console.ReadLine());
             int Sum = 0;
             int i;
@@ -169,13 +169,43 @@ namespace CsharpTask2
                 }
                 
             }
-            Console.WriteLine("Sum = " + Sum);
+            Console.WriteLine("Sum = " + Sum);*/
             ////////////////////////////////////////////////////
             //Task 9 - Validated Positive Number Input
+            int N = 0;
+            int Sum = 0;
+            bool exit = false;
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Enter a positive valid number: ");
+                    N = int.Parse(Console.ReadLine());
+                    if (N > 0)
+                    {
+                        exit = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a positive number.");
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a whole number.");
+                }
+            } while (exit == false);
+
+            for (int i = 1; i <= N; i++)
+            {
+                Sum += i;
+            }
+            Console.WriteLine("Sum = " + Sum);
             ////////////////////////////////////////////////////
             //Task 10 - Simple ATM Simulation
             ////////////////////////////////////////////////////
 
-        }
+
+        }     
     }
 }
