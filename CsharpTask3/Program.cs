@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Diagnostics.Metrics;
+using System.Reflection.Metadata;
 
 namespace CsharpTask3
 {
@@ -34,10 +35,13 @@ namespace CsharpTask3
             string fullNameLower = fullName.ToLower();
             int fullNameLength = fullName.Length;
 
+            int actualFullNameLength = (fullName.Trim().Length) - 1;
+
             Console.WriteLine("Full Name: " + fullName);
             Console.WriteLine("Full Name In Upper: " + fullNameUpper);
             Console.WriteLine("Full Name In Lower: " + fullNameLower);
-            Console.WriteLine("Full Name Length : " + fullNameLength);*/
+            Console.WriteLine("Full Name Length : " + fullNameLength);
+            Console.WriteLine("Full Name Length without space : " + actualFullNameLength);*/
             ////////////////////////////////////////////////////
 
             //Task 4 - Subscription End Date
@@ -131,7 +135,7 @@ namespace CsharpTask3
 
 
             ////////////////////////////////////////////////////
-            
+
             //Task 9 - Round Up / Round Down Explorer
             /*Console.WriteLine("Enter a decimal number ");
             double decimalNum = double.Parse(Console.ReadLine());
@@ -143,15 +147,88 @@ namespace CsharpTask3
             Console.WriteLine("Always rounded Down : " + roundToDown);*/
 
             ////////////////////////////////////////////////////
-            
+
             //Task 10 - Word Position Finder
-
+            /*Console.WriteLine("Enter a full sentence : ");
+            string fullSentence = Console.ReadLine().ToLower();
+            Console.WriteLine("Search a word from your sentence");
+            string searchWord = Console.ReadLine().ToLower().Trim();
+            bool sentenceContain = fullSentence.Contains(searchWord);
+            int firstPositionIndex = fullSentence.IndexOf(searchWord);
+            int lastPosition = fullSentence.LastIndexOf(searchWord);
+            if (sentenceContain == true)
+            {
+                Console.WriteLine("Word found on: ");
+                Console.WriteLine("first - occurrence position : " + firstPositionIndex);
+                Console.WriteLine("last - occurrence position : " + lastPosition);
+            }
+            else
+            {
+                Console.WriteLine("Word not found");
+            }*/
 
 
             ////////////////////////////////////////////////////
+
             //Task 11 - One-Time Password (OTP) Generator
+            /*int Counter = 0;
+            bool exit = false;
+            Console.WriteLine("OTP verification simulator");
+            Random rand = new Random();
+            int randNum = rand.Next(1000, 10000);
+            Console.WriteLine("OTP has been sent to your device...");
+            Console.WriteLine(randNum);
+            while (exit == false)
+            {
+                try
+                {
+
+                    Console.WriteLine("Write OTP for verification : ");
+                    int otpVerf = int.Parse(Console.ReadLine());
+                    Counter++;
+
+                    if (randNum == otpVerf)
+                    {
+                        Console.WriteLine("Verified");
+                        exit = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Verification Failed");
+                        if (Counter < 3)
+                        {
+                            Console.WriteLine("Remaining attempts: " + (3 - Counter));
+                        }
+                        else if (Counter == 3)
+                        {
+                            Console.WriteLine("Ran out of attempts! ");
+                            exit = true;
+                        }
+                    }
+                }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input [non-numeric]! Please enter numeric numbers only.");
+            }}*/
+
+
+
+
             ////////////////////////////////////////////////////
+
             //Task 12 - Birthday Insights
+            DateTime tDate = DateTime.Now;
+            Console.WriteLine("Enter your date of birth as text (e.g.2000-05-14).");
+            DateTime dob = DateTime.Parse(Console.ReadLine());
+
+            int age = tDate.Year - dob.Year;
+            if(dob.Date > tDate.AddYears(-age)){
+                age--;
+            }
+            DayOfWeek dayOfBirth = dob.DayOfWeek;
+            Console.WriteLine("Age : " + age);
+            Console.WriteLine("Day of birth : " + dayOfBirth);
+            
             ////////////////////////////////////////////////////
 
         }
