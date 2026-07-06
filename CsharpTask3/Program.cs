@@ -224,6 +224,7 @@ namespace CsharpTask3
             int age = tDate.Year - dob.Year;
             if(dob.Date > tDate.AddYears(-age)){
                 age--;
+
             }
             DayOfWeek dayOfBirth = dob.DayOfWeek;
             Console.WriteLine("Age : " + age);
